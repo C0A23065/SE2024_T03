@@ -15,9 +15,9 @@ def init_db():
     conn.commit()  
     conn.close()  
   
-@app.before_first_request  
+@app.before_request  
 def setup():  
-    init_db()  
+    init_db()   
   
 @app.route('/', methods=['GET', 'POST'])  
 def index():  
