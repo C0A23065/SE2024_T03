@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>  
-<html lang="ja">  
+<html lang="en">  
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
@@ -7,66 +8,146 @@
     <style>  
         body {  
             font-family: Arial, sans-serif;  
-            background-color: #f0f0f0;  
-            margin: 0;  
-            padding: 0;  
-        }  
-        .container {  
-            width: 300px;  
-            margin: 20px auto;  
-            background-color: #fff;  
-            padding: 20px;  
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
             text-align: center;  
         }  
-        .photo {  
-            width: 100%;  
+  
+        h1, h2 {  
+            margin-top: 20px;  
+        }  
+  
+        form {  
+            margin: 20px 0;  
+        }  
+  
+        .photo-preview {  
+            width: 200px;  
             height: 100px;  
-            background-color: #ccc;  
-            margin-bottom: 20px;  
+            border: 1px solid #ccc;  
+            background-color: #e0e0e0;  
+            margin: 10px auto;  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
         }  
-        .input {  
-            width: 100%;  
+  
+        input[type="file"], select {  
+            margin: 10px 0;  
             padding: 5px;  
-            margin-bottom: 20px;  
-            border: 1px solid #ddd;  
+            width: 80%;  
         }  
-        .button {  
+  
+        button[type="submit"] {  
             background-color: #00bfff;  
             color: white;  
-            padding: 10px 20px;  
             border: none;  
-            border-radius: 20px;  
+            border-radius: 50px;  
+            padding: 10px 20px;  
             cursor: pointer;  
+            margin-top: 20px;  
         }  
+  
         .footer {  
             display: flex;  
             justify-content: space-around;  
-            margin-top: 20px;  
-        }  
-        .footer div {  
-            text-align: center;  
-            font-size: 12px;  
-            background-color: #fff;  
+            border-top: 1px solid #ccc;  
             padding: 10px 0;  
-            width: 60px;  
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
+            position: fixed;  
+            bottom: 0;  
+            width: 100%;  
+            background-color: #f9f9f9;  
         }  
-    </style>  
+  
+        .footer button {  
+            border: 1px solid #ccc;  
+            background-color: white;  
+            border-radius: 5px;  
+            padding: 10px 20px;  
+            cursor: pointer;  
+        }  
+  
+        ul {  
+            list-style: none;  
+            padding: 0;  
+        }  
+  
+        li {  
+            margin-bottom: 10px;  
+        }  
+  
+  li {  
+      margin-bottom: 10px;  
+  }  
+</style>  
 </head>  
 <body>  
-    <div class="container">  
-        <h2>商品登録ページ</h2>  
-        <div class="photo"></div>  
-        <div>商品の写真</div>  
-        <input type="text" class="input" placeholder="商品のカテゴリ">  
-        <button class="button">登録</button>  
-    </div>  
-    <div class="footer">  
-        <div>おすすめ</div>  
-        <div>検索</div>  
-        <div>会員専用ページ</div>  
-        <div>マイページ</div>  
-    </div>  
+<h1>商品登録ページ</h1>  
+
+<!-- <form action="/" method="post" enctype="multipart/form-data">  
+  <label for="photo">商品の写真</label>  
+  <div class="photo-preview" id="photoPreview">写真を選択</div>  
+  <input type="file" name="photo" id="photo" accept="image/*" onchange="previewPhoto(event)" required>  
+    
+  <label for="category">商品のカテゴリ</label>  
+  <select name="category" id="category" required>  
+      {% for category in categories %}  
+      <option value="{{ category['category'] }}">{{ category['category'] }}</option>  
+      {% endfor %}  
+  </select>  
+    
+  <button type="submit">登録</button>  
+</form>   -->
+<form action="/" method="post" enctype="multipart/form-data">  
+    <label for="name">商品の名前<br/></label>  
+    <input type="text" name="name" id="name" required><br/> 
+  
+    <label for="photo">商品の写真<br/></label>  
+    <input type="file" name="photo" id="photo" accept="image/*" required><br/>
+  
+    <label for="category">商品のカテゴリ</label>  
+    <select name="category" id="category" required>  
+        {% for category in categories %}  
+        <option value="{{ category['category'] }}">{{ category['category'] }}</option>  
+        {% endfor %}  
+    </select>  
+  
+    <button type="submit">登録</button>  
+</form>  
+
+
+<ul>  
+  {% for product in products %}  
+  <li>{{ product['name'] }} - <img src="{{ product['photo_path'] }}" alt="写真" width="50"></li>  
+  {% endfor %}  
+</ul>  
+
+<ul>  
+  {% for item in store_items %}  
+  <li>{{ item['name'] }} - {{ item['category'] }}</li>  
+  {% endfor %}  
+</ul>  
+
+<div class="footer">  
+  <button>おすすめ</button>  
+  <button>検索</button>  
+  <button>会員専用ページ</button>  
+  <button>マイページ</button>  
+</div>  
+
+<script>  
+  function previewPhoto(event) {  
+      const [file] = event.target.files;  
+      const preview = document.getElementById('photoPreview');  
+        
+      if (file) {  
+          const reader = new FileReader();  
+          reader.onload = e => {  
+              preview.innerHTML = `<img src="${e.target.result}" alt="写真">`;  
+          };  
+          reader.readAsDataURL(file);  
+      } else {  
+          preview.innerHTML = '写真を選択';  
+      }  
+  }  
+</script>  
 </body>  
 </html>  

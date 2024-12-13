@@ -1,0 +1,71 @@
+<!-- <!DOCTYPE html>  
+<html lang="ja">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>一致する店側データ</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+        }  
+        h1 {  
+            margin-top: 20px;  
+        }  
+        ul {  
+            list-style: none;  
+            padding: 0;  
+        }  
+        li {  
+            margin-bottom: 10px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>{{ category }} の店側データ</h1>  
+    <ul>  
+        {% for item in store_items %}  
+        <li>{{ item['name'] }} - {{ item['category'] }}</li>  
+        {% else %}  
+        <li>一致するデータはありません。</li>  
+        {% endfor %}  
+    </ul>  
+    <a href="{{ url_for('index') }}">戻る</a>  
+</body>  
+</html>   -->
+
+<!DOCTYPE html>  
+<html lang="ja">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>一致する店側データ</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+        }  
+        h1 {  
+            margin-top: 20px;  
+        }  
+        ul {  
+            list-style: none;  
+            padding: 0;  
+        }  
+        li {  
+            margin-bottom: 10px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>{{ category }} のマッチ結果</h1>  
+    <ul>  
+        {% for item in store_items %}  
+        <li>{{ item['name'] }} - {{ item['category'] }} - ¥{{ item['price'] }} - 店名: {{ item['store_name'] }}</li>  
+        {% else %}  
+        <li>一致するデータはありません。</li>  
+        {% endfor %}  
+    </ul>  
+    <a href="{{ url_for('index') }}">戻る</a>  
+</body>  
+</html>  
