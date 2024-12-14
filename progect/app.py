@@ -18,7 +18,7 @@ def index():
     if request.method == 'POST':  
         name = request.form.get('name')  
         category = request.form.get('category')  
-        photo = request.files.get('photo')  
+        photo = request.files.get('photo')                                                                                      
   
         # デバッグ用の出力  
         print(f"Name: {name}, Category: {category}, Photo: {photo}")  

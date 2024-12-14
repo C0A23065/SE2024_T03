@@ -6,6 +6,7 @@ def init_db():
     conn = sqlite3.connect('database.db')  
     c = conn.cursor()  
   
+    # テーブルの作成と初期データ挿入
     # store_dataテーブルの作成  
     c.execute('DROP TABLE IF EXISTS store_data')  
     c.execute('''  
@@ -18,7 +19,7 @@ def init_db():
         )  
     ''')  
   
-    # productsテーブルの作成  
+    # ユーザー登録テーブルの作成  
     c.execute('DROP TABLE IF EXISTS products')  
     c.execute('''  
         CREATE TABLE IF NOT EXISTS products (  
@@ -29,7 +30,7 @@ def init_db():
         )  
     ''')  
   
-    # categoriesテーブルの作成  
+    # カテゴリテーブルの作成  
     c.execute('DROP TABLE IF EXISTS categories')  
     c.execute('''  
         CREATE TABLE IF NOT EXISTS categories (  

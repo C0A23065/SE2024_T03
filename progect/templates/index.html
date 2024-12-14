@@ -80,6 +80,7 @@
 </style>  
 </head>  
 <body>  
+<!-- 商品登録フォーム -->
 <h1>商品登録ページ</h1>  
 
 <!-- <form action="/" method="post" enctype="multipart/form-data">  
@@ -104,7 +105,8 @@
     <input type="file" name="photo" id="photo" accept="image/*" required><br/>
   
     <label for="category">商品のカテゴリ</label>  
-    <select name="category" id="category" required>  
+    <select name="category" id="category" required>
+        <!-- Flaskで渡されたカテゴリを選択肢として表示 -->  
         {% for category in categories %}  
         <option value="{{ category['category'] }}">{{ category['category'] }}</option>  
         {% endfor %}  
