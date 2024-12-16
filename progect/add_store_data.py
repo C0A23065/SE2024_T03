@@ -1,3 +1,4 @@
+# database.dbに店側のデータを追加するプログラム
 
 import sqlite3  
   
@@ -22,5 +23,7 @@ def add_store_data(name, category, price, store_name):
   
 if __name__ == '__main__':  
     # 例として店側のデータを追加  
+    # 追加したときは/SE2024_T03/progectでpython3 init_db.pyでデータベースを初期化してから実行すること
+    # 実行コマンドはpython3 add_store_data.py
     add_store_data('デニムパンツ', '服', 2999.99, 'ユニクロ')  
-    add_store_data('Another Store Item', 'Category2', 1500.00, '無印良品')  
+    add_store_data('カップラーメンセット', '食品', 500, 'スーパー')  
