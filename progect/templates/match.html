@@ -54,14 +54,25 @@
         }  
         li {  
             margin-bottom: 10px;  
-        }  
+        } 
+        img {
+            max-width: 200px;
+            height: auto;
+        } 
     </style>  
 </head>  
 <body>  
     <h1>{{ category }} のマッチ結果</h1>  
     <ul>  
         {% for item in store_items %}  
-        <li>{{ item['name'] }} - {{ item['category'] }} - ¥{{ item['price'] }} - 店名: {{ item['store_name'] }}</li>  
+        <li>{{ item['name'] }} - {{ item['category'] }} - ¥{{ item['price'] }} - 店名: {{ item['store_name'] }}
+            {% if item['photo_path'] %}
+            <img src="{{ url_for('static', filename=item['photo_path'].split('/')[-2] + '/' + item['photo_path'].split('/')[-1]) }}" 
+                 alt="{{ item['name'] }}">
+            {% else %}
+            <p>写真はありません</p>
+            {% endif %}
+        </li>  
         {% else %}  
         <li>一致するデータはありません。</li>  
         {% endfor %}  
