@@ -1,0 +1,50 @@
+<!DOCTYPE html>  
+<html lang="ja">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>マイページ</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+        }  
+        h1 {  
+            margin-top: 20px;  
+        }  
+        ul {  
+            list-style: none;  
+            padding: 0;  
+        }  
+        li {  
+            margin-bottom: 10px;  
+        }  
+        img {  
+            max-width: 100px;  
+            height: auto;  
+        }  
+        .nav-button {  
+            background-color: #00bfff;  
+            color: white;  
+            border: none;  
+            border-radius: 50px;  
+            padding: 10px 20px;  
+            margin-top: 20px;  
+            cursor: pointer;  
+            text-decoration: none;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>マイページ</h1>  
+    <ul>  
+        {% for product in products %}  
+        <li>{{ product['name'] }} - <img src="{{ url_for('static', filename=product['photo_path'].split('/')[-2] + '/' + product['photo_path'].split('/')[-1]) }}" alt="写真"></li>  
+        {% else %}  
+        <li>登録された商品はありません。</li>  
+        {% endfor %}  
+    </ul>  
+    <a href="{{ url_for('index') }}" class="nav-button">商品登録ページへ</a>  
+    <a href="{{ url_for('home') }}" class="nav-button">ホームへ戻る</a>  
+</body>  
+</html> 
