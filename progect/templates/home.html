@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html lang="ja">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>ハチオシ - ホーム</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+            padding: 50px;  
+        }  
+        h1 {  
+            font-size: 2.5em;  
+            margin-bottom: 20px;  
+        }  
+        .nav-button {  
+            background-color: #00bfff;  
+            color: white;  
+            border: none;  
+            border-radius: 50px;  
+            padding: 15px 30px;  
+            margin: 10px;  
+            cursor: pointer;  
+            font-size: 1.2em;  
+            text-decoration: none;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>ハチオシ</h1>  
+    <a href="{{ url_for('index') }}" class="nav-button">商品登録</a>  
+    <a href="{{ url_for('mypage') }}" class="nav-button">マイページ</a>  
+    <a href="{{ url_for('recommend') }}" class="nav-button">あなたへのおすすめ</a>  
+</body>  
+</html>  
