@@ -122,6 +122,13 @@ def match(category):
     conn.close()  
     return render_template('match.html', store_items=matching_store_data, category=category)  
   
+# @app.route('/mypage')  
+# def mypage():  
+#     conn = get_db_connection()  
+#     user_products = conn.execute('SELECT * FROM products').fetchall()  
+#     conn.close()  
+#     return render_template('mypage.html', products=user_products)
+
 @app.route('/mypage')  
 def mypage():  
     conn = get_db_connection()  
