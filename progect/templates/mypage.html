@@ -31,7 +31,7 @@
             position: fixed;  
             bottom: 0;  
             width: 100%;  
-            background-color: #f9f9f9;  
+            background-color: #fe9;  
             margin: 0; /* Removed margin to make buttons adjacent */
         }  
   
@@ -85,7 +85,12 @@
         <button onclick="location.href='{{ url_for('home') }}'">ホームへ戻る</button>        <button onclick="location.href='/recommend'">おすすめ</button>   
         <button onclick="location.href='/index'">商品登録</button>  
         <button onclick="location.href='/mypage'">マイページ</button>  
-    </div>  
+    </div>
+    <style>
+        .footer button:hover {
+            background-color: #009acd; /* Darker shade of the original color */
+        }
+    </style> 
 
     <a href="{{ url_for('index') }}" class="nav-button">商品登録ページへ</a>  
     <a href="{{ url_for('home') }}" class="nav-button">ホームへ戻る</a>  
