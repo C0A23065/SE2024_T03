@@ -69,7 +69,7 @@
             position: fixed;  
             bottom: 0;  
             width: 100%;  
-            background-color: #f9f9f9;  
+            background-color: #fe9;  
         }  
   
         .footer button {  
@@ -120,6 +120,11 @@
     <button onclick="location.href='/index'">商品登録</button>  
     <button onclick="location.href='/mypage'">マイページ</button>  
     </div>  
+    <style>
+        .footer button:hover {
+            background-color: #009acd; /* Darker shade of the original color */
+        }
+    </style> 
     <a href="{{ url_for('index') }}">戻る</a> 
 </body>  
 </html>  
