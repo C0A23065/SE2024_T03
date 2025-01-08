@@ -8,14 +8,19 @@
     <style>  
         body {
             background-color: #fff3b8;
+            font-family: 'MS Gothic', sans-serif;
             margin: 0; /* 追加: 全体の余白をゼロに設定 */
             padding: 0; /* 追加: 全体の内側余白をゼロに設定 */
-            font-family: Arial, sans-serif;  
-            text-align: center;  
-        }  
+            text-align: center;
+            font-weight: bold; /* Added to make the text bold */
+            font-size: 1.5em; /* Increased font size */
+        }
   
         h1, h2 {  
-            margin-top: 20px;  
+            font-family: 'Chikushi A Mincho', serif; /* Using Chikushi Mincho font */
+            font-size: 2.5em; /* Increased font size to 3 times the original 2.5em */
+            font-weight: bold; /* Made the font bold */
+            color: #333; /* Darker color for better visibility */ 
         }  
   
         form {  
@@ -31,13 +36,16 @@
             display: flex;  
             align-items: center;  
             justify-content: center;  
+            border-radius: 10px; /* Rounded corners */
         }  
   
-        input[type="file"], select {  
+        input[type="file"], select, input[type="text"] {  
             margin: 10px 0;  
             padding: 5px;  
             width: 80%;  
-        }  
+            border-radius: 10px; /* Rounded corners */
+            font-size: 1.2em; /* Larger font size */
+        }
   
         button[type="submit"] {  
             background-color: #00bfff;  
@@ -57,16 +65,30 @@
             position: fixed;  
             bottom: 0;  
             width: 100%;  
-            background-color: #f9f9f9;  
-        }  
+            background-color: #f9f9f9;
+            margin: 0;   
+        } 
   
         .footer button {  
-            border: 1px solid #ccc;  
-            background-color: white;  
-            border-radius: 5px;  
-            padding: 10px 20px;  
+            background-color: #00bfff;  
+            color: white;  
+            border: 2px solid #009acd; /* Darker shade of the button color */
+            border-radius: 10px; /* Changed to square corners */
+            padding: 15px 30px;  
+            margin: 0; /* Removed margin to make buttons adjacent */
             cursor: pointer;  
+            font-size: 1.2em;  
+            text-decoration: none;  
+            font-family: 'MS Gothic', sans-serif; /* Added Gothic font */
         }  
+        
+        .button-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
   
         ul {  
             list-style: none;  
@@ -82,7 +104,10 @@
   }  
 </style>  
 </head>  
-<body>  
+<body>
+    <div>
+        <img src="{{ url_for('static', filename='photos/emblem_of_hachioji.png') }}" alt="Emblem of Hachioji" style="width: 30%; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; opacity: 0.3;">
+    </div>  
 <!-- 商品登録フォーム -->
 <h1>商品登録ページ</h1>  
 
@@ -137,7 +162,13 @@
     <button onclick="location.href='/recommend'">おすすめ</button>   
     <button onclick="location.href='/index'">商品登録</button>  
     <button onclick="location.href='/mypage'">マイページ</button>  
-</div>  
+</div>
+    <style>
+        .footer button:hover {
+            background-color: #009acd; /* Darker shade of the original color */
+        }
+    </style>  
+
 
 <script>  
   function previewPhoto(event) {  
