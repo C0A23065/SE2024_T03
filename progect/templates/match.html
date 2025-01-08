@@ -98,11 +98,12 @@
         {% endfor %}  
     </ul>
     <div class="footer">  
-    <!-- 各ボタンにリンクを設定 -->  
-        <button onclick="location.href='/recommend'">おすすめ</button>   
-        <button onclick="location.href='/members-only'">会員専用ページ</button>  
-        <button onclick="location.href='/mypage'">マイページ</button>  
-    </div>
+    <!-- 各ボタンにリンクを設定 -->
+    <button onclick="location.href='/home'">ホーム</button>
+    <button onclick="location.href='/recommend'">おすすめ</button>   
+    <button onclick="location.href='/index'">商品登録</button>  
+    <button onclick="location.href='/mypage'">マイページ</button>  
+    </div>  
     <a href="{{ url_for('index') }}">戻る</a> 
 </body>  
 </html>  
