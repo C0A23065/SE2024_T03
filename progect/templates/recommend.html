@@ -71,6 +71,14 @@
         <li>おすすめ商品はありません。</li>  
         {% endfor %}  
     </ul>  
+
+     <div class="footer">  
+    <!-- 各ボタンにリンクを設定 -->  
+        <button onclick="location.href='/recommend'">おすすめ</button>   
+        <button onclick="location.href='/members-only'">会員専用ページ</button>  
+        <button onclick="location.href='/mypage'">マイページ</button>  
+    </div>
+
     <a href="{{ url_for('home') }}" class="nav-button">ホームへ戻る</a>  
 </body>  
 </html>  
