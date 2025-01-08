@@ -11,7 +11,32 @@
         }  
         h1 {  
             margin-top: 20px;  
+        }
+        
+        .footer {  
+            display: flex;  
+            justify-content: space-around;  
+            border-top: 1px solid #ccc;  
+            padding: 10px 0;  
+            position: fixed;  
+            bottom: 0;  
+            width: 100%;  
+            background-color: #f9f9f9;  
         }  
+  
+        .footer button {  
+            border: 1px solid #ccc;  
+            background-color: white;  
+            border-radius: 5px;  
+            padding: 10px 20px;  
+            cursor: pointer;  
+        }  
+  
+        ul {  
+            list-style: none;  
+            padding: 0;  
+        }
+
         ul {  
             list-style: none;  
             padding: 0;  
@@ -43,7 +68,15 @@
         {% else %}  
         <li>登録された商品はありません。</li>  
         {% endfor %}  
-    </ul>  
+    </ul>
+    
+    <div class="footer">  
+        <!-- 各ボタンにリンクを設定 -->  
+        <button onclick="location.href='/recommend'">おすすめ</button>   
+        <button onclick="location.href='/members-only'">会員専用ページ</button>  
+        <button onclick="location.href='/mypage'">マイページ</button>  
+    </div> 
+
     <a href="{{ url_for('index') }}" class="nav-button">商品登録ページへ</a>  
     <a href="{{ url_for('home') }}" class="nav-button">ホームへ戻る</a>  
 </body>  
