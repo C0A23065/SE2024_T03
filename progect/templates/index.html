@@ -9,6 +9,8 @@
         body {
             background-color: #fff3b8;
             font-family: 'MS Gothic', sans-serif;
+            margin: 0; /* 追加: 全体の余白をゼロに設定 */
+            padding: 0; /* 追加: 全体の内側余白をゼロに設定 */
             text-align: center;
             font-weight: bold; /* Added to make the text bold */
             font-size: 1.5em; /* Increased font size */
@@ -57,11 +59,14 @@
   
         .footer {  
             display: flex;  
-            justify-content: space-around;   
+            justify-content: space-around;  
+            border-top: 1px solid #ccc;  
             padding: 10px 0;  
             position: fixed;  
             bottom: 0;  
-            width: 100%;    
+            width: 100%;  
+            background-color: #f9f9f9;
+            margin: 0;   
         } 
   
         .footer button {  
@@ -157,7 +162,13 @@
     <button onclick="location.href='/recommend'">おすすめ</button>   
     <button onclick="location.href='/index'">商品登録</button>  
     <button onclick="location.href='/mypage'">マイページ</button>  
-</div>  
+</div>
+    <style>
+        .footer button:hover {
+            background-color: #009acd; /* Darker shade of the original color */
+        }
+    </style>  
+
 
 <script>  
   function previewPhoto(event) {  
