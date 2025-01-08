@@ -114,8 +114,8 @@
         {% endfor %}  
     </ul>
     <div class="footer">  
-    <!-- 各ボタンにリンクを設定 -->
-    <button><a href="{{ url_for('home') }}" class="nav-button">ホームへ戻る</a></button>
+    <!-- 各ボタンにリンクを設定 --> 
+    <button onclick="location.href='{{ url_for('home') }}';">ホームへ戻る</button>
     <button onclick="location.href='/recommend'">おすすめ</button>   
     <button onclick="location.href='/index'">商品登録</button>  
     <button onclick="location.href='/mypage'">マイページ</button>  
